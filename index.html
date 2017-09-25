@@ -10,6 +10,7 @@
 	input:checked + label { color: #000000; background-color: #FFFF77; }
 	textarea,input[type=text] { font-family: inherit; font-size: 96%; vertical-align: middle; text-align: left; width: 99.4%; border: none; }
 	textarea:hover,input:hover { box-shadow: 2px 2px 30px rgba(0,0,255,0.5); }
+	.noborder { border: none; }
 	.omit { margin: 1ex 15%; }
 	.omit input:hover,a:hover { box-shadow: 5px 10px 50px rgba(51,0,0,0.5); }
 	@media print { .omit { display: none; }	}
@@ -24,7 +25,7 @@
 <tbody>
 <tr>
 	<th><strong><a href="https://bankuei.wordpress.com/2010/03/27/the-same-page-tool/" target="new">Same Page Tool</a></strong></th>
-	<td colspan="2" style="border: none"> <input type="text" name="t0" id="t0" value="(Game Title) - (Rule System)" title="your game's name &amp; edition" /> </td>
+	<td colspan="2" class="noborder"> <input type="text" name="t0" id="t0" value="(Game Title) - (Rule System)" title="your game's name &amp; edition" /> </td>
 </tr>
 <tr>
 	<th>About Our Game</th>
@@ -103,7 +104,7 @@
 </tr>
 <tr class="omit">
 	<th> </th>
-	<td class="noborder"> <a href="https://rpg.stackexchange.com/questions/92290/whats-the-purpose-of-the-same-page-tool/92305#92305" target="new" title="Seriously, if you're a GM but don't know the Same Page Tool, READ THIS NOW">Learn how to use this form</a>, then <input id="printbutton" type="button" value="Print (Save to PDF)" onClick="window.print()" title="email to your players or post on your page" /> </td>
+	<td class="noborder"> <a href="https://rpg.stackexchange.com/questions/92290/whats-the-purpose-of-the-same-page-tool/92305#92305" target="new" title="Seriously, if you're a GM but don't know the Same Page Tool, READ THIS NOW">Learn why to use this form</a>, then <input id="printbutton" type="button" value="Print (Save to PDF)" onClick="window.print()" title="email to your players or post on your page" /> </td>
 	<td class="noborder"> <input type="reset"> </td>
 </tr>
 </tbody>
