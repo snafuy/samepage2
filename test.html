@@ -31,6 +31,9 @@ function textCount(DF)	{
 function decodeVars()	{
 	
 }
+function encodeChecks(arrFlags)	{
+	intFlags = 16*arrFlags[4] + 8*arrFlags[3] + 4*arrFlags[2] + 2*arrFlags[1] + arrFlags[0];
+}
 </script>
 </head>
 <body>
@@ -38,7 +41,7 @@ function decodeVars()	{
 <table>
 <tbody>
 <tr>
-	<th><strong>Same Page</strong></th>
+	<th><strong><a href="https://bankuei.wordpress.com/2010/03/27/the-same-page-tool/" target="new">Same Page Tool</a></strong></th>
 	<td colspan="2" class="noborder"> <input type="text" name="t0" id="t0" value="(Game Title) - (Rule System)" title="your game's name &amp; edition" oninput="textCount(this.form)" /> </td>
 </tr>
 <tr>
