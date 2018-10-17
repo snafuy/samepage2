@@ -22,6 +22,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+<form>
 <table>
 <tbody>
 <tr>
@@ -33,7 +34,7 @@
 	<td colspan="2"> <textarea name="t1" rows="3" title="description, story intro, character roles, links, etc">(description, story intro, character roles, links, etc.)</textarea> </td> 
 </tr>
 <tr>
-	<th title="What should players already know before joining this game?">Player Knowledge</th>
+	<th title="What should players already know before joining this game?">0: Player Knowledge</th>
 	<td>
 		<input type="radio" name="q0" id="know0" value="0" /><label for="know0" title="If you're familiar with similar genre fiction, you can learn the rules while you play."> GENRE: it's like that movie.</label><br />
 		<input type="radio" name="q0" id="know1" value="1" /><label for="know1" title="If you've skimmed the key rules (or played a similar game) we can fill in the details."> BASICS: how the stats &amp; dice work.</label><br />
@@ -44,7 +45,7 @@
 	</td>
 </tr>
 <tr>
-	<th>Character Creation</th>
+	<th title="Every player needs a Player Character.">1: Character Creation</th>
 	<td>
 		<input type="radio" name="q2" id="pg0" value="0" /><label for="pg0" title="The Game Master will bring characters and give them to the players."> PREGENERATED: read 'em &amp; weep.</label><br />
 		<input type="radio" name="q2" id="pg1" value="1" /><label for="pg1" title="We create characters collaboratively at the start of the game."> DAY ONE: made together as a group.</label><br />
@@ -60,7 +61,7 @@
 	</td>
 </tr>
 <tr>
-	<th>Group vs Universe</th>
+	<th title="How does your PC get along with your group, and with the world?">2: Group vs Universe</th>
 	<td>
 		<input type="radio" name="q4" id="group0" value="0" /><label for="group0" title="You do what's best for the group. Example: Star Trek."> TEAM: all for one &amp; one for all.</label><br />
 		<input type="radio" name="q4" id="group1" value="1" /><label for="group1" title="You need them, even if they're annoying. Example: Firefly."> ALLIED: common goals, limited disputes.</label><br />
@@ -74,7 +75,7 @@
 	</td>
 </tr>
 <tr>
-	<th>Game Intent</th>
+	<th title="What kind of campaign is this? What should the group do?">3: Game Intent</th>
 	<td>
 		<input type="radio" name="q6" id="intent0" value="0" /><label for="intent0"> ROLEPLAY: <em>What would my PC say?</em></label><br />
 		<input type="radio" name="q6" id="intent1" value="1" /><label for="intent1"> STORY: <em>What info should I focus on?</em></label><br />
@@ -87,7 +88,7 @@
 	</td>
 </tr>
 <tr>
-	<th>Rules &amp; Combat</th>
+	<th title="Last, a few words about dice and numbers.">4: Rules &amp; Combat</th>
 	<td>
 		<input type="radio" name="q8" id="rules0" value="0" /><label for="rules0"> LOOSE: wing it, do what feels right.</label><br />
 		<input type="radio" name="q8" id="rules1" value="1" /><label for="rules1"> MODERATE: exceptions when appropriate.</label><br />
@@ -109,5 +110,6 @@
 </tr>
 </tbody>
 </table>
+</form>
 </body>
 </html>
