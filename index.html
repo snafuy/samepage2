@@ -3,9 +3,10 @@
 <head>
 <title>RPG Same Page Tool v2</title>
 <style type="text/css">
+	body { background: #ffffff; margin: 0; padding: 0; }
 	table { width: 99.4%; max-width: 180ex; margin: auto; white-space: nowrap; }
-	td { border: 1px #999999 dotted; padding: .2em; vertical-align: middle; text-align: left; }
-	th { font-weight: normal; text-align: right; width: 5%; }
+	td { border: 1px #009900 dotted; padding: .2em; vertical-align: middle; text-align: left; }
+	th { background: #eeeeee; font-weight: normal; text-align: right; width: 5%; }
 	label { color: #777777; }
 	input:checked + label { color: #000000; background-color: #FFFF77; }
 	textarea,input[type=text] { font-family: inherit; font-size: 96%; vertical-align: middle; text-align: left; width: 99.4%; border: none; white-space: auto; }
@@ -55,54 +56,54 @@
 	<td>
 		<input type="checkbox" name="q3" id="pc0" value="0" /><label for="pc0" title="Who are you? Where are you from?"> DETAILED: history &amp; personality.</label><br />
 		<input type="checkbox" name="q3" id="pc1" value="1" /><label for="pc1" title="What do you want? Why are you here?"> MOTIVATED: desires &amp; plans.</label><br />
-		<input type="checkbox" name="q3" id="pc2" value="2" /><label for="pc2" title="Your PC has quirks that sometimes cause drama."> FLAWED: characters with character.</label><br />
-		<input type="checkbox" name="q3" id="pc3" value="3" /><label for="pc3" title="Your PC previously met the other PCs."> CONNECTED: inter-PC backstories.</label><br />
-		<input type="checkbox" name="q3" id="pc4" value="4" /><label for="pc4" title="This game is hardcore. Don't cause a TPK."> OPTIMIZED: or you won't survive.</label><br />
+		<input type="checkbox" name="q3" id="pc2" value="2" /><label for="pc2" title="How do your quirks and foibles induce drama?"> FLAWED: characters with character.</label><br />
+		<input type="checkbox" name="q3" id="pc3" value="3" /><label for="pc3" title="When did you previously meet other PCs?"> CONNECTED: inter-PC backstories.</label><br />
+		<input type="checkbox" name="q3" id="pc4" value="4" /><label for="pc4" title="Focus on power and efficiency, not personality."> OPTIMIZED: or you won't survive.</label><br />
 	</td>
 </tr>
 <tr>
 	<th title="2: How the PCs relate to the world.">Group vs Universe</th>
 	<td>
 		<input type="radio" name="q4" id="group0" value="0" /><label for="group0" title="You help each other, without hesitation. Example: Star Trek."> TEAM: all for one &amp; one for all.</label><br />
-		<input type="radio" name="q4" id="group1" value="1" /><label for="group1" title="You need each other, within reason. Example: Firefly."> ALLIED: common goals, limited disputes.</label><br />
-		<input type="radio" name="q4" id="group2" value="2" /><label for="group2" title="You tolerate each other, mostly. Example: soap operas."> NEUTRAL: varied agendas, cross purposes.</label><br />
-		<input type="radio" name="q4" id="group3" value="3" /><label for="group3" title="You need each other, until you can stab them. Example: Survivor."> OPPOSED: competition, frenemies.</label><br />
+		<input type="radio" name="q4" id="group1" value="1" /><label for="group1" title="You need each other, so try to play nice. Example: Firefly."> ALLIED: common goals, limited disputes.</label><br />
+		<input type="radio" name="q4" id="group2" value="2" /><label for="group2" title="You tolerate each other, up to a point. Example: soap operas."> NEUTRAL: varied agendas, cross purposes.</label><br />
+		<input type="radio" name="q4" id="group3" value="3" /><label for="group3" title="You use each other, until you can stab them. Example: Survivor."> OPPOSED: competition, frenemies.</label><br />
 	</td>
 	<td>
-		<input type="radio" name="q5" id="conflict0" value="0" /><label for="conflict0" title="Your side is the correct one, undoubtedly."> BLACK &amp; WHITE: clear lines, good vs bad.</label><br />
-		<input type="radio" name="q5" id="conflict1" value="1" /><label for="conflict1" title="Your side is less bad, probably."> GRAY &amp; GRAYER: ambiguity &amp; secrets.</label><br />
-		<input type="radio" name="q5" id="conflict2" value="2" /><label for="conflict2" title="Maybe you should start a new side."> FULL SPECTRUM: many paths negotiable.</label> 
+		<input type="radio" name="q5" id="conflict0" value="0" /><label for="conflict0" title="Your side is the best one, undoubtedly."> BLACK &amp; WHITE: clear lines, good vs bad.</label><br />
+		<input type="radio" name="q5" id="conflict1" value="1" /><label for="conflict1" title="Your side is the lesser evil, probably."> GRAY &amp; GRAYER: ambiguity &amp; secrets.</label><br />
+		<input type="radio" name="q5" id="conflict2" value="2" /><label for="conflict2" title="Your side has pluses and minuses, as do others."> FULL SPECTRUM: many paths negotiable.</label> 
 	</td>
 </tr>
 <tr>
-	<th title="3: How the PCs should behave.">Game Intent</th>
+	<th title="3: How you relate to the game.">Game Intent</th>
 	<td>
-		<input type="radio" name="q6" id="intent0" value="0" /><label for="intent0" title="You should stay in character and use an accent."> ROLEPLAY: <em>What would my PC say?</em></label><br />
-		<input type="radio" name="q6" id="intent1" value="1" /><label for="intent1" title="You should stay on topic and search the room."> STORY: <em>What info should I focus on?</em></label><br />
-		<input type="radio" name="q6" id="intent2" value="2" /><label for="intent2" title="You should stay standing longer than your opponents."> VICTORY: <em>What's my battle plan?</em></label><br />
+		<input type="radio" name="q6" id="intent0" value="0" /><label for="intent0" title="You should stay in character and ham it up."> ROLEPLAY: <em>What would my PC say?</em></label><br />
+		<input type="radio" name="q6" id="intent1" value="1" /><label for="intent1" title="You should stay focused and search the room."> STORY: <em>What info does my PC need?</em></label><br />
+		<input type="radio" name="q6" id="intent2" value="2" /><label for="intent2" title="You should stay standing and fight on."> VICTORY: <em>What's my battle plan?</em></label><br />
 	</td>
 	<td>
-		<input type="radio" name="q7" id="story0" value="0" /><label for="story0" title="You're on a path with adventures ahead."> PLANNED: challenges that the PCs face.</label><br />
-		<input type="radio" name="q7" id="story1" value="1" /><label for="story1" title="You're at a crossroads with  several options."> SANDBOX: world that the PCs explore.</label><br />
-		<input type="radio" name="q7" id="story2" value="2" /><label for="story2" title="You're at an inn with fellow storytellers."> COLLABORATIVE: tale that we create.</label><br />
+		<input type="radio" name="q7" id="story0" value="0" /><label for="story0" title="You're on a journey with adventures ahead."> PLANNED: challenges that the PCs face.</label><br />
+		<input type="radio" name="q7" id="story1" value="1" /><label for="story1" title="You're at a crossroads with many destinations."> SANDBOX: world that the PCs explore.</label><br />
+		<input type="radio" name="q7" id="story2" value="2" /><label for="story2" title="You're in a circle with fellow storytellers."> COLLABORATIVE: tale that we create.</label><br />
 	</td>
 </tr>
 <tr>
 	<th title="4: How the game is adjudicated.">Rules &amp; Combat</th>
 	<td>
-		<input type="radio" name="q8" id="rules0" value="0" /><label for="rules0"> LOOSE: wing it, do what feels right.</label><br />
-		<input type="radio" name="q8" id="rules1" value="1" /><label for="rules1"> MODERATE: exceptions when appropriate.</label><br />
-		<input type="radio" name="q8" id="rules2" value="2" /><label for="rules2"> STRICT: to the letter, including loopholes.</label><br />
+		<input type="radio" name="q8" id="rules0" value="0" /><label for="rules0" title="Don't get hung up on the rulebook."> LOOSE: wing it, do what feels right.</label><br />
+		<input type="radio" name="q8" id="rules1" value="1" /><label for="rules1" title="See the house rules described below."> MODERATE: exceptions when appropriate.</label><br />
+		<input type="radio" name="q8" id="rules2" value="2" /><label for="rules2" title="Read a players guide for tips and tricks."> STRICT: to the letter, including loopholes.</label><br />
 	</td>
 	<td>
-		<input type="radio" name="q9" id="combat0" value="0" /><label for="combat0"> QUALITATIVE: roles over rolls.</label><br />
-		<input type="radio" name="q9" id="combat1" value="1" /><label for="combat1"> QUANTITATIVE: rolls tell the tale.</label><br />
-		<input type="radio" name="q9" id="combat2" value="2" /><label for="combat2"> TACTICAL: on a detailed battle mat.</label><br />
+		<input type="radio" name="q9" id="combat0" value="0" /><label for="combat0" title="Cinematic style, rule of cool."> QUALITATIVE: roles over rolls.</label><br />
+		<input type="radio" name="q9" id="combat1" value="1" /><label for="combat1" title="Narrative style, theater of the mind."> QUANTITATIVE: rolls tell the tale.</label><br />
+		<input type="radio" name="q9" id="combat2" value="2" /><label for="combat2" title="Wargame style, precise position matters."> TACTICAL: on a detailed battle mat.</label><br />
 	</td>
 </tr>
 <tr>	<th> House Rules<br />&amp; Tips</th> <td colspan="2"> <textarea name="t4" rows="3" title="synopsis, links, other guidance">(synopsis, links, other guidance)</textarea> </td> </tr>
 <tr>	<th> When &amp; Where</th>	<td colspan="2"> <input type="text" name="t5" title="schedule &amp; location" /> </td>	</tr>
-<tr>	<th> What You Need</th>	<td colspan="2"> <input type="text" name="t6" title="equipment each player should have with them" /> </td>	
+<tr>	<th> What You Need</th>	<td colspan="2"> <input type="text" name="t6" title="equipment each player should have on hand" /> </td>	
 </tr>
 <tr class="omit">
 	<th> </th>
