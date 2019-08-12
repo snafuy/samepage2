@@ -6,19 +6,19 @@
 <style type="text/css">
 	html { font-size: 120%; }
 	body { color: #000000; background: #ffffff; margin: 0; padding: 0; }
-	table { margin: auto; max-width: 60rem; }
+	table { margin: auto; max-width: 99%; }
 	td { border: 1px #009900 dotted; padding: .2em; vertical-align: middle; text-align: left; }
 	th { background: #eeeeee; font-weight: normal; text-align: right; max-width: 10%; }
-	label { display: block; opacity: 0.5; max-width: 24rem; white-space: nowrap; overflow: hidden; text-overflow: clip; }
+	label { display: block; opacity: 0.5; max-width: 25rem; white-space: nowrap; overflow: hidden; text-overflow: clip; }
 	label abbr { font-size: .25rem; color: #006600; }
 	input[type=radio],input[type=checkbox] { float: left; }
 	input:checked + label { opacity: 1; background-color: #ffff77; white-space: unset; overflow: visible; }
 	input:checked + label abbr { display: block; white-space: normal; font-size: 1rem; padding-left: .5rem; }
-	textarea,input[type=text] { font-family: inherit; font-size: 96%; vertical-align: middle; text-align: left; width: 99%; max-width: 50rem; border: none; white-space: auto; }
+	textarea,input[type=text] { font-family: inherit; font-size: 96%; vertical-align: middle; text-align: left; width: 99%; border: none; white-space: auto; }
 	textarea:hover,input:hover { box-shadow: inset 0 0 1ex rgba(0,0,255,0.5); }
 	label:hover { box-shadow: 0 0 1ex rgba(0,0,255,0.5), inset 0 0 1ex rgba(0,0,255,0.5); }
 	.noborder { border: none; }
-	.omit { margin: 1ex 15%; }
+	.omit { margin: .5rem .1rem; }
 	a:hover { background-color: #ffeedd; }
 	#t0 { font-weight: bold; font-size: larger; text-align: center; }
 	#t2 { text-indent: 3ex; }
@@ -28,9 +28,8 @@
 		.omit,abbr { display: none; }
 		td { width: 45%; }
 		input:checked + label abbr { display: block; }
-		* { max-width: initial !important; }
 		*::placeholder { opacity: 0.5; }
-		label, input:checked + label { white-space: nowrap; overflow: visible; text-overflow: unset; }
+		label, input:checked + label { max-width: unset; white-space: nowrap; overflow: visible; text-overflow: unset; }
 		*:hover, label:hover { box-shadow: unset; }
 	}
 </style>
