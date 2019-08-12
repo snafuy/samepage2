@@ -5,16 +5,16 @@
 <style type="text/css">
 	body { color: #000000; background: #ffffff; margin: 0; padding: 0; }
 	table { width: 99.4%; max-width: 180ex; margin: auto; white-space: nowrap; }
-	td { border: 1px #009900 dotted; padding: .2em; vertical-align: middle; text-align: left; }
+	td { border: 1px #009900 dotted; padding: .2em; vertical-align: middle; text-align: left; overflow: hidden; }
 	th { background: #eeeeee; font-weight: normal; text-align: right; width: 5%; }
 	label { opacity: 0.5; }
-	input:checked + label { opacity: 1; background-color: #FFFF77; }
+	input:checked + label { opacity: 1; background-color: #ffff77; }
 	textarea,input[type=text] { font-family: inherit; font-size: 96%; vertical-align: middle; text-align: left; width: 99.4%; border: none; white-space: auto; }
 	textarea:hover,input:hover { box-shadow: inset 0 0 1ex rgba(0,0,255,0.5); }
 	input[type=radio]:hover,input[type=checkbox]:hover { box-shadow: 0 0 1ex rgba(0,0,255,0.5), inset 0 0 1ex rgba(0,0,255,0.5); }
 	.noborder { border: none; }
 	.omit { margin: 1ex 15%; }
-	a:hover { background-color: #FFEEDD; }
+	a:hover { background-color: #ffeedd; }
 	@media print { 
 		.omit { display: none; }
 	}
@@ -30,11 +30,11 @@
 <tbody>
 <tr>
 	<th><a href="https://google.com/search?q=RPG+Same+Page+Tool+v2" target="new" title="Learn why your game should use this tool.">Same Page Tool v2</a></th>
-	<td colspan="2" class="noborder"> <input type="text" name="t0" id="t0" value="(Game Title) - (Rule System)" title="your game's name &amp; edition" /> </td>
+	<td colspan="2" class="noborder"> <input type="text" name="t0" id="t0" placeholder="Game Title &amp; Rule System" title="your game's name &amp; edition" /> </td>
 </tr>
 <tr>
 	<th></th>
-	<td colspan="2"> <textarea name="t1" rows="3" title="description, story intro, character roles, links, etc">(description, story intro, character roles, links, etc.)</textarea> </td> 
+	<td colspan="2"> <textarea name="t1" rows="3" placeholder="Description of the game: high concept, background, story &amp; character intro, links to guides &amp; source material, etc." title="description, story intro, character roles, links, etc"> </textarea> </td> 
 </tr>
 <tr>
 	<th title="0: How to prepare before joining the game.">Player Knowledge</th>
@@ -103,7 +103,7 @@
 		<input type="radio" name="q7" id="combat2" value="2" /><label for="combat2" title="Wargame based on positioning &amp; status effects."> TACTICAL: on a detailed battle mat.</label><br />
 	</td>
 </tr>
-<tr>	<th> House Rules<br />&amp; Tips</th> <td colspan="2"> <textarea name="t3" rows="3" title="synopsis, links, other guidance">(synopsis, links, other guidance)</textarea> </td> </tr>
+<tr>	<th> House Rules<br />&amp; Tips</th> <td colspan="2"> <textarea name="t3" rows="3" placeholder="How We Roll: synopsis, links, &amp; other guidance" title="synopsis, links, other guidance"> </textarea> </td> </tr>
 <tr>	<th> When &amp; Where</th>	<td colspan="2"> <input type="text" name="t4" title="schedule &amp; location" /> </td>	</tr>
 <tr>	<th> What You Need</th>	<td colspan="2"> <input type="text" name="t5" title="equipment each player should have on hand" /> </td>	
 </tr>
