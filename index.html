@@ -19,15 +19,18 @@
 	label:hover { box-shadow: 0 0 1ex rgba(0,0,255,0.5), inset 0 0 1ex rgba(0,0,255,0.5); }
 	.noborder { border: none; }
 	.omit { margin: .5rem .1rem; }
+	.ml20 { margin-left: 20%; }
 	a:hover { background-color: #ffeedd; }
 	#t0 { font-weight: bold; font-size: larger; text-align: center; }
 	#t2 { text-indent: 1.5rem; }
 	#printbutton { border-radius: 1.5ex; padding: 0.5ex 1ex; font-family: inherit; font-size: inherit; }
-	@media print { 
+	@media print {
 		html { font-size: 100%; }
-		.omit,abbr { display: none; }
+		.hide,.omit,abbr { display: none; }
 		td { width: 45%; }
-		input:checked + label abbr { display: block; }
+		input:checked { display: inline; }
+		input:checked + .hide, input:checked + label abbr { display: block; }
+		input:checked + .hide abbr { display: inline; }
 		*::placeholder { opacity: 0.5; }
 		label, input:checked + label { max-width: unset; white-space: nowrap; overflow: visible; text-overflow: unset; }
 		*:hover, label:hover { box-shadow: unset; }
@@ -44,92 +47,91 @@
 	<td colspan="2" class="noborder"> <input type="text" name="t0" id="t0" placeholder="Game Title &amp; Rule System" title="your game's name &amp; edition" /> </td>
 </tr>
 <tr>
-	<th></th>
-	<td colspan="2"> <textarea name="t1" rows="3" placeholder="Description of the game: high concept, background, intro, links to guides &amp; source material, etc." title="description, story intro, character roles, links, etc"></textarea> </td> 
-</tr>
-<tr>
 	<th title="0: How to prepare before joining the game.">Player Knowledge</th>
 	<td>
-		<input type="radio" name="q0" id="know0" value="0" /><label for="know0" title="If you get the plot, you can learn the rules while you play."> GENRE: it's like that movie.</label>
-		<input type="radio" name="q0" id="know1" value="1" /><label for="know1" title="If you've skimmed the rules, we'll fill in the details."> BASICS: how the stats &amp; dice work.</label>
-		<input type="radio" name="q0" id="know2" value="2" /><label for="know2" title="We use a lot of game jargon; you need to keep up."> MASTERY: rulebook cover to cover.</label>
+		<input type="radio" name="q1" id="q11" value="1" /><label for="q11" title="Follow the story; you can learn the rules as we go."> GENRE: it's like that movie.</label>
+		<input type="radio" name="q1" id="q12" value="2" /><label for="q12" title="If you've skimmed the rules, we'll fill in the details."> BASICS: how the stats &amp; dice work.</label>
+		<input type="radio" name="q1" id="q13" value="3" /><label for="q13" title="We use a lot of game jargon; you need to keep up."> MASTERY: rulebook cover to cover.</label>
+		<input type="checkbox" class="hide" name="c1a" id="c1a" value="1" /><label for="c1a" class="hide"> UNIVERSE: names, locations, lore.</label>
 	</td>
 	<td>
-		<input type="checkbox" name="f0" id="know-geo" value="0" /><label for="know-geo" title="Go watch the movie or read the book again."> UNIVERSE: names, locations, lore.</label>
+		<textarea name="t1" id="t1" rows="4" placeholder="Description of the game: high concept, background, intro, links to guides &amp; source material, etc." title="description, story intro, character roles, links, etc"></textarea>
 	</td>
 </tr>
 <tr>
 	<th title="1: How to make your Player Character (PC).">Character Creation</th>
 	<td>
-		<input type="radio" name="q1" id="pg0" value="0" /><label for="pg0" title="The Game Master will bring characters for the group."> PREGENERATED: <em>read 'em &amp; weep.</em></label>
-		<input type="radio" name="q1" id="pg1" value="1" /><label for="pg1" title="Collaborative creation adds character depth."> DAY ONE: made together as a group.</label>
-		<input type="radio" name="q1" id="pg2" value="2" /><label for="pg2" title="Make your character in advance &amp; be ready to play."> ROLL YOUR OWN: <em>bring 'em on.</em></label>
+		<input type="radio" name="q2" id="q21" value="1" /><label for="pg0" title="The Game Master will bring characters for the group."> PREGENERATED: <em>read 'em &amp; weep.</em></label>
+		<input type="radio" name="q2" id="q22" value="2" /><label for="pg1" title="Collaborative creation adds character depth."> DAY ONE: made together as a group.</label>
+		<input type="radio" name="q2" id="q23" value="3" /><label for="pg2" title="Make your character in advance &amp; be ready to play."> ROLL YOUR OWN: <em>bring 'em on.</em></label>
 		<input type="text" name="t2" id="t2" title="character creation instructions or link" />
 	</td>
 	<td>
-		<input type="checkbox" name="f1" id="pc0" value="0" /><label for="pc0" title="Who are you? Where are you from?"> DETAILED: history &amp; personality.</label>
-		<input type="checkbox" name="f2" id="pc1" value="1" /><label for="pc1" title="What do you want? Why are you here?"> MOTIVATED: desires &amp; plans.</label>
-		<input type="checkbox" name="f3" id="pc2" value="2" /><label for="pc2" title="How do your quirks &amp; foibles induce drama?"> FLAWED: characters with character.</label>
-		<input type="checkbox" name="f4" id="pc3" value="3" /><label for="pc3" title="When did you previously meet other characters?"> CONNECTED: inter-PC backstories.</label>
-		<input type="checkbox" name="f5" id="pc4" value="4" /><label for="pc4" title="Focus on power and efficiency, not personality."> OPTIMIZED: or you won't survive.</label>
+		<input type="checkbox" name="c2a" id="c2a" value="1" /><label for="c2a" title="Who are you? Where are you from?"> DETAILED: history &amp; personality.</label>
+		<input type="checkbox" name="c2b" id="c2b" value="1" /><label for="c2b" title="What do you want? Why are you here?"> MOTIVATED: desires &amp; plans.</label>
+		<input type="checkbox" name="c2c" id="c2c" value="1" /><label for="c2c" title="How do your quirks &amp; foibles induce drama?"> FLAWED: characters with character.</label>
+		<input type="checkbox" name="c2d" id="c2d" value="1" /><label for="c2d" title="When did you previously meet other characters?"> CONNECTED: inter-PC backstories.</label>
 	</td>
 </tr>
 <tr>
 	<th title="2: How the PCs relate to the world.">Group vs Universe</th>
 	<td>
-		<input type="radio" name="q2" id="group0" value="0" /><label for="group0" title="You help each other, without hesitation."> TEAM: all for one &amp; one for all.</label>
-		<input type="radio" name="q2" id="group1" value="1" /><label for="group1" title="You need each other, so try to play nice."> ALLIED: common goals, limited disputes.</label>
-		<input type="radio" name="q2" id="group2" value="2" /><label for="group2" title="You tolerate each other, up to a point."> NEUTRAL: varied agendas, cross purposes.</label>
-		<input type="radio" name="q2" id="group3" value="3" /><label for="group3" title="You use each other, until you get your way."> OPPOSED: competition, frenemies.</label>
+		<input type="radio" name="q3" id="q31" value="1" /><label for="q31" title="You help each other, without hesitation."> TEAM: all for one &amp; one for all.</label>
+		<input type="radio" name="q3" id="q32" value="2" /><label for="q32" title="You need each other, so try to play nice."> ALLIED: common goals, limited disputes.</label>
+		<input type="radio" name="q3" id="q33" value="3" /><label for="q33" title="You tolerate each other, up to a point."> NEUTRAL: varied agendas, cross purposes.</label>
+		<input type="radio" name="q3" id="q34" value="4" /><label for="q34" title="You use each other, until you get your way."> OPPOSED: competition, frenemies.</label>
 	</td>
 	<td>
-		<input type="radio" name="q3" id="conflict0" value="0" /><label for="conflict0" title="Your side is the best one, undoubtedly."> BLACK &amp; WHITE: clear lines, good vs bad.</label>
-		<input type="radio" name="q3" id="conflict1" value="1" /><label for="conflict1" title="Your side is the lesser evil, probably."> GRAY &amp; GRAYER: ambiguity &amp; secrets.</label>
-		<input type="radio" name="q3" id="conflict2" value="2" /><label for="conflict2" title="Your side has pluses &amp; minuses, as do others."> FULL SPECTRUM: ideals are relative.</label> 
+		<input type="radio" name="q4" id="q41" value="1" /><label for="q41" title="Your side is the best one, undoubtedly."> BLACK &amp; WHITE: clear lines, good vs bad.</label>
+		<input type="radio" name="q4" id="q42" value="2" /><label for="q42" title="Your side is the lesser evil, probably."> GRAY &amp; GRAYER: ambiguity &amp; secrets.</label>
+		<input type="radio" name="q4" id="q43" value="3" /><label for="q43" title=""> FULL SPECTRUM: it's not about good &amp; bad.</label>
+		<input type="checkbox" name="c4a" id="c4a" value="1" /><label for="c4a" title=""> RED ALERT: deceit &amp; betrayal are allowed.</label>
 	</td>
 </tr>
 <tr>
 	<th title="3: How you relate to the game.">Game Intent</th>
 	<td>
-		<input type="radio" name="q4" id="intent0" value="0" /><label for="intent0" title="You should stay in character and ham it up."> ROLEPLAY: <em>What would my PC say?</em></label>
-		<input type="radio" name="q4" id="intent1" value="1" /><label for="intent1" title="You should stay focused and search the room."> STORY: <em>What info does my PC need?</em></label>
-		<input type="radio" name="q4" id="intent2" value="2" /><label for="intent2" title="You should stay standing and fight on."> VICTORY: <em>What's my battle plan?</em></label>
+		<input type="radio" name="q5" id="q51" value="1" /><label for="q51" title="You should stay in character and ham it up."> ROLEPLAY: <em>What would my PC say?</em></label>
+		<input type="radio" name="q5" id="q52" value="2" /><label for="q52" title="You should stay focused and search the room."> STORY: <em>What info does my PC need?</em></label>
+		<input type="radio" name="q5" id="q53" value="3" /><label for="q53" title="You should stay standing and fight on."> VICTORY: <em>What's my battle plan?</em></label>
 	</td>
 	<td>
-		<input type="radio" name="q5" id="story0" value="0" /><label for="story0" title="You're on a journey with adventures ahead."> PLANNED: challenges that the PCs face.</label>
-		<input type="radio" name="q5" id="story1" value="1" /><label for="story1" title="You're at a crossroads with many destinations."> SANDBOX: world that the PCs explore.</label>
-		<input type="radio" name="q5" id="story2" value="2" /><label for="story2" title="You're in a circle with fellow storytellers."> COLLABORATIVE: tale that we create.</label>
+		<input type="radio" name="q6" id="q61" value="1" /><label for="q61" title="You're on a journey with adventures ahead."> PLANNED: challenges that the PCs face.</label>
+		<input type="radio" name="q6" id="q62" value="2" /><label for="q62" title="You're at a crossroads with many destinations."> SANDBOX: world that the PCs explore.</label>
+		<input type="radio" name="q6" id="q63" value="3" /><label for="q63" title="You're in a circle with fellow storytellers."> COLLABORATIVE: tale that we create.</label>
 	</td>
 </tr>
 <tr>
 	<th title="4: How the game is adjudicated.">Rules &amp; Combat</th>
 	<td>
-		<input type="radio" name="q6" id="rules0" value="0" /><label for="rules0" title="The rules are just useful advice."> LOOSE: rule of cool, do what feels right.</label>
-		<input type="radio" name="q6" id="rules1" value="1" /><label for="rules1" title="See the house rules described below."> MODERATE: exceptions when appropriate.</label>
-		<input type="radio" name="q6" id="rules2" value="2" /><label for="rules2" title="Read a players guide for tips &amp; tricks."> STRICT: to the letter, including loopholes.</label>
+		<input type="radio" name="q7" id="q71" value="1" /><label for="q71" title="The rules are just useful advice."> LOOSE: rule of cool, do what feels right.</label>
+		<input type="radio" name="q7" id="q72" value="2" /><label for="q72" title="See the house rules described below."> MODERATE: exceptions when appropriate.</label>
+		<input type="radio" name="q7" id="q73" value="3" /><label for="q73" title="Read a players guide for tips &amp; tricks."> STRICT: to the letter, including loopholes.</label>
 	</td>
 	<td>
-		<input type="radio" name="q7" id="combat0" value="0" /><label for="combat0" title="Big-picture description of scenes and outcomes."> QUALITATIVE: roles over rolls.</label>
-		<input type="radio" name="q7" id="combat1" value="1" /><label for="combat1" title="Play by play, based on roll results."> QUANTITATIVE: theater of the mind.</label>
-		<input type="radio" name="q7" id="combat2" value="2" /><label for="combat2" title="Wargame-style with position-based effects."> TACTICAL: on a detailed battle mat.</label>
+		<input type="radio" name="q8" id="q81" value="1" /><label for="q81" title="Big-picture description of scenes and outcomes."> QUALITATIVE: roles over rolls.</label>
+		<input type="radio" name="q8" id="q82" value="2" /><label for="q82" title="Play by play, based on roll results."> QUANTITATIVE: theater of the mind.</label>
+		<input type="radio" name="q8" id="q83" value="3" /><label for="q83" title="Wargame-style with position-based effects."> TACTICAL: on a detailed battle mat.</label>
 	</td>
 </tr>
-<tr>	<th> House Rules<br />&amp; Tips</th> <td colspan="2"> <textarea name="t3" rows="3" placeholder="How We Roll: synopsis, links, &amp; other guidance" title="synopsis, links, other guidance"></textarea> </td> </tr>
-<tr>	<th> When &amp; Where</th>	<td colspan="2"> <input type="text" name="t4" title="schedule &amp; location" /> </td>	</tr>
-<tr>	<th> What You Need</th>	<td colspan="2"> <input type="text" name="t5" title="equipment each player should have on hand" /> </td>	
+<tr>	<th> House Rules<br />&amp; Tips</th> <td colspan="2"> <textarea name="t3" id="t3" rows="3" placeholder="How We Roll: synopsis, links, &amp; other guidance" title="synopsis, links, other guidance"></textarea> </td> </tr>
+<tr>	<th> When &amp; Where</th>	<td colspan="2"> <input type="text" name="t4" id="t4" title="schedule &amp; location" /> </td>	</tr>
+<tr>	<th> What You Need</th>	<td colspan="2"> <input type="text" name="t5" id="t5" title="equipment each player should have on hand" /> </td>
 </tr>
 <tr class="omit">
 	<th> <input type="text" name="count" id="count"> </th>
-	<td class="noborder" colspan="2"> <input id="printbutton" type="button" value="Print (Save to PDF)" onClick="window.print()" title="email to your players or post on your page" /> <input type="reset" style="margin-left: 20%" /> </td>
+	<td class="noborder" colspan="2"> <input id="printbutton" type="button" value="Print (Save to PDF)" onClick="window.print()" title="email to your players or post on your page" /> <input type="reset" class="ml20" /> </td>
 </tr>
 </tbody>
 </table>
 </form>
 <script>
 	for(let e of document.getElementsByTagName("label")) {
-		let x = document.createElement("abbr");
-		x.appendChild(document.createTextNode(" "+e.title));
-		e.appendChild(x);
+		if (e.title.length)	{
+			x = document.createElement("abbr");
+			x.appendChild(document.createTextNode(" "+e.title));
+			e.appendChild(x);
+		}
 	}
 </script>
 </body>
