@@ -2,38 +2,60 @@
 <html>
 <head>
 <title>RPG Same Page Tool v2</title>
-<style type="text/css">
-	table { min-width: 110ex; width: 99.4%; max-width: 180ex; margin: auto; }
-	td { border: 1px #999999 dotted; padding: .2em; vertical-align: middle; text-align: left; }
-	th { font-weight: normal; text-align: right; width: 5%; white-space: nowrap; }
+<style>
+	body { background: #ffffff; margin: 0; padding: 0; }
+	table { width: 99.4%; max-width: 180ex; margin: auto; white-space: nowrap; }
+	td { border: 1px #009900 dotted; padding: .2em; vertical-align: middle; text-align: left; }
+	th { background: #eeeeee; font-weight: normal; text-align: right; width: 5%; }
 	label { color: #777777; }
 	input:checked + label { color: #000000; background-color: #FFFF77; }
-	textarea,input[type=text] { font-family: inherit; font-size: 96%; vertical-align: middle; text-align: left; width: 99.4%; border: none; }
-	textarea:hover,input:hover { box-shadow: 2px 2px 30px rgba(0,0,255,0.5); }
-	.noborder,.noborder td { border: none !important; }
-	.omit { font-size: larger; }
-	.omit input:hover,a:hover { box-shadow: 5px 10px 50px rgba(51,0,0,0.5); }
+	textarea,input[type=text] { font-family: inherit; font-size: 96%; vertical-align: middle; text-align: left; width: 99.4%; border: none; white-space: auto; }
+	textarea:hover,input:hover { box-shadow: inset 0 0 1ex rgba(0,0,255,0.5); }
+	input[type=radio]:hover,input[type=checkbox]:hover { box-shadow: 0 0 1ex rgba(0,0,255,0.5), inset 0 0 1ex rgba(0,0,255,0.5); }
+	.noborder { border: none; }
+	.omit { margin: 1ex 15%; }
+	a:hover { background-color: #FFEEDD; }
 	@media print { .omit { display: none; }	}
 	#t0 { font-weight: bold; font-size: larger; text-align: center; }
 	#t2 { text-indent: 3ex; }
 	#printbutton { border-radius: 1.5ex; padding: 0.5ex 1ex; font-family: inherit; font-size: inherit; }
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="text/javascript">
-function textCount(DF)	{
-	total = 0;
-	textFields=6;
-	for(i=0;i<textFields;i++)	{
-		total += encodeURIComponent(eval("DF.t"+i+".value")).length;
+<script>
+	DF = document.forms[0];
+	USP = window.URLSearchParams;
+	function textCount()	{
+		total = 0;
+		textFields = 6;
+		for(i=0;i<textFields;i++)	{
+		//	total += encodeURIComponent(DF.value).length;
+		//	document.forms[0].
+		}
+		DF.count.value = total;
 	}
-	DF.count.value = total;
-}
-function decodeVars()	{
+	function decodeText()	{
+		i=0;
+		while ((eval("DF.t"+i)!=="undefined")) {
+			if (USP.get("t"+i))	eval("DF.t"+i).value = eval("USP.t"+i).value;
+			i++;
+			
+		}
+	}
+	function encodeText()	{
+		
+	}
+	function decodeRadio()	{
+		
+	}
+	function encodeRadio()	{
 	
-}
-function encodeChecks(arrFlags)	{
-	intFlags = 16*arrFlags[4] + 8*arrFlags[3] + 4*arrFlags[2] + 2*arrFlags[1] + arrFlags[0];
-}
+	}
+	function decodeFlags()	{
+	
+	}
+	function encodeFlags()	{
+		
+	}
 </script>
 </head>
 <body>
@@ -41,12 +63,12 @@ function encodeChecks(arrFlags)	{
 <table>
 <tbody>
 <tr>
-	<th><strong><a href="https://bankuei.wordpress.com/2010/03/27/the-same-page-tool/" target="new">Same Page Tool</a></strong></th>
-	<td colspan="2" class="noborder"> <input type="text" name="t0" id="t0" value="(Game Title) - (Rule System)" title="your game's name &amp; edition" oninput="textCount(this.form)" /> </td>
+	<th> </th>
+	<td colspan="2" class="noborder"> <input type="text" oninput="textCount()" name="t0" id="t0" value="(Game Title) - (Rule System)" /> </td>
 </tr>
 <tr>
-	<th>About Our Game</th>
-	<td colspan="2"> <textarea name="t1" rows="3" title="description, story intro, character roles, links, etc" oninput="textCount(this.form)">(description, story intro, character roles, links, etc.)</textarea> </td> 
+	<th></th>
+	<td colspan="2"> <textarea name="t1" oninput="textCount()" rows="3">(description, story intro, character roles, links, etc.)</textarea> </td> 
 </tr>
 <tr>
 	<th>Player Knowledge</th>
@@ -56,83 +78,73 @@ function encodeChecks(arrFlags)	{
 		<input type="radio" name="q0" id="know2" value="2" /><label for="know2"> MASTERY: rulebook cover to cover.</label><br />
 	</td>
 	<td>
-		<input type="checkbox" name="q1" id="know-geo" value="0" /><label for="know-geo"> UNIVERSE: names, places, lore.</label><br />
+		<input type="checkbox" name="f0" id="know-geo" value="0" /><label for="know-geo"> UNIVERSE: names, locations, lore.</label><br />
 	</td>
 </tr>
 <tr>
 	<th>Character Creation</th>
 	<td>
-		<input type="radio" name="q2" id="pg0" value="0" /><label for="pg0"> PREGENERATED: read 'em &amp; weep.</label><br />
-		<input type="radio" name="q2" id="pg1" value="1" /><label for="pg1"> DAY ONE: made together as a group.</label><br />
-		<input type="radio" name="q2" id="pg2" value="2" /><label for="pg2"> ROLL YOUR OWN: bring 'em on.</label><br />
-		<input type="text" name="t2" id="t2" title="character creation instructions or link" oninput="textCount(this.form)" />
+		<input type="radio" name="q1" id="pg0" value="0" /><label for="pg0"> PREGENERATED: read 'em &amp; weep.</label><br />
+		<input type="radio" name="q1" id="pg1" value="1" /><label for="pg1"> DAY ONE: made together as a group.</label><br />
+		<input type="radio" name="q1" id="pg2" value="2" /><label for="pg2"> ROLL YOUR OWN: bring 'em on.</label><br />
+		<input type="text" oninput="textCount()" name="t2" id="t2" />
 	</td>
 	<td>
-		<input type="checkbox" name="q3" id="pc0" value="0" /><label for="pc0"> DETAILED: history &amp; personality.</label><br />
-		<input type="checkbox" name="q3" id="pc1" value="1" /><label for="pc1"> MOTIVATED: desires &amp; plans.</label><br />
-		<input type="checkbox" name="q3" id="pc2" value="2" /><label for="pc2"> FLAWED: characters with character.</label><br />
-		<input type="checkbox" name="q3" id="pc3" value="3" /><label for="pc3"> CONNECTED: inter-PC backstories.</label><br />
-		<input type="checkbox" name="q3" id="pc4" value="4" /><label for="pc4"> OPTIMIZED: or you won't survive.</label><br />
+		<input type="checkbox" name="f1" id="pc0" value="0" /><label for="pc0"> DETAILED: history &amp; personality.</label><br />
+		<input type="checkbox" name="f2" id="pc1" value="1" /><label for="pc1"> MOTIVATED: desires &amp; plans.</label><br />
+		<input type="checkbox" name="f3" id="pc2" value="2" /><label for="pc2"> FLAWED: characters with character.</label><br />
+		<input type="checkbox" name="f4" id="pc3" value="3" /><label for="pc3"> CONNECTED: inter-PC backstories.</label><br />
+		<input type="checkbox" name="f5" id="pc4" value="4" /><label for="pc4"> OPTIMIZED: or you won't survive.</label><br />
 	</td>
 </tr>
 <tr>
 	<th>Group vs Universe</th>
 	<td>
-		<input type="radio" name="q4" id="group0" value="0" /><label for="group0"> TEAM: work together in total harmony.</label><br />
-		<input type="radio" name="q4" id="group1" value="1" /><label for="group1"> ALLIED: common goals, limited disputes.</label><br />
-		<input type="radio" name="q4" id="group2" value="2" /><label for="group2"> NEUTRAL: varied agendas, cross purposes.</label><br />
-		<input type="radio" name="q4" id="group3" value="3" /><label for="group3"> OPPOSED: competition, frenemies.</label><br />
+		<input type="radio" name="q2" id="group0" value="0" /><label for="group0"> TEAM: all for one &amp; one for all.</label><br />
+		<input type="radio" name="q2" id="group1" value="1" /><label for="group1"> ALLIED: common goals, limited disputes.</label><br />
+		<input type="radio" name="q2" id="group2" value="2" /><label for="group2"> NEUTRAL: varied agendas, cross purposes.</label><br />
+		<input type="radio" name="q2" id="group3" value="3" /><label for="group3"> OPPOSED: competition, frenemies.</label><br />
 	</td>
 	<td>
-		<input type="radio" name="q5" id="conflict0" value="0" /><label for="conflict0"> BLACK &amp; WHITE: clear lines, good vs bad.</label><br />
-		<input type="radio" name="q5" id="conflict1" value="1" /><label for="conflict1"> GRAY &amp; GRAYER: ambiguity &amp; secrets.</label><br />
-		<input type="radio" name="q5" id="conflict2" value="2" /><label for="conflict2"> FULL SPECTRUM: many paths negotiable.</label> 
+		<input type="radio" name="q3" id="conflict0" value="0" /><label for="conflict0"> BLACK &amp; WHITE: clear lines, good vs bad.</label><br />
+		<input type="radio" name="q3" id="conflict1" value="1" /><label for="conflict1"> GRAY &amp; GRAYER: ambiguity &amp; secrets.</label><br />
+		<input type="radio" name="q3" id="conflict2" value="2" /><label for="conflict2"> FULL SPECTRUM: many paths negotiable.</label> 
 	</td>
 </tr>
 <tr>
 	<th>Game Intent</th>
 	<td>
-		<input type="radio" name="q6" id="intent0" value="0" /><label for="intent0"> ROLEPLAY: <em>What would my PC say?</em></label><br />
-		<input type="radio" name="q6" id="intent1" value="1" /><label for="intent1"> STORY: <em>What info should I focus on?</em></label><br />
-		<input type="radio" name="q6" id="intent2" value="2" /><label for="intent2"> VICTORY: <em>What's my battle plan?</em></label><br />
+		<input type="radio" name="q4" id="intent0" value="0" /><label for="intent0"> ROLEPLAY: <em>What would my PC say?</em></label><br />
+		<input type="radio" name="q4" id="intent1" value="1" /><label for="intent1"> STORY: <em>What info does my PC need?</em></label><br />
+		<input type="radio" name="q4" id="intent2" value="2" /><label for="intent2"> VICTORY: <em>What's my battle plan?</em></label><br />
 	</td>
 	<td>
-		<input type="radio" name="q7" id="story0" value="0" /><label for="story0"> PLANNED: challenges that the PCs face.</label><br />
-		<input type="radio" name="q7" id="story1" value="1" /><label for="story1"> SANDBOX: world that the PCs explore.</label><br />
-		<input type="radio" name="q7" id="story2" value="2" /><label for="story2"> COLLABORATIVE: tale that we create.</label><br />
+		<input type="radio" name="q5" id="story0" value="0" /><label for="story0"> PLANNED: challenges that the PCs face.</label><br />
+		<input type="radio" name="q5" id="story1" value="1" /><label for="story1"> SANDBOX: world that the PCs explore.</label><br />
+		<input type="radio" name="q5" id="story2" value="2" /><label for="story2"> COLLABORATIVE: tale that we create.</label><br />
 	</td>
 </tr>
 <tr>
 	<th>Rules &amp; Combat</th>
 	<td>
-		<input type="radio" name="q8" id="rules0" value="0" /><label for="rules0"> LOOSE: wing it, do what feels right.</label><br />
-		<input type="radio" name="q8" id="rules1" value="1" /><label for="rules1"> MODERATE: exceptions when appropriate.</label><br />
-		<input type="radio" name="q8" id="rules2" value="2" /><label for="rules2"> STRICT: to the letter, including loopholes.</label><br />
+		<input type="radio" name="q6" id="rules0" value="0" /><label for="rules0"> LOOSE: wing it, do what feels right.</label><br />
+		<input type="radio" name="q6" id="rules1" value="1" /><label for="rules1"> MODERATE: exceptions when appropriate.</label><br />
+		<input type="radio" name="q6" id="rules2" value="2" /><label for="rules2"> STRICT: to the letter, including loopholes.</label><br />
 	</td>
 	<td>
-		<input type="radio" name="q9" id="combat0" value="0" /><label for="combat0"> QUALITATIVE: roles over rolls.</label><br />
-		<input type="radio" name="q9" id="combat1" value="1" /><label for="combat1"> QUANTITATIVE: rolls tell the tale.</label><br />
-		<input type="radio" name="q9" id="combat2" value="2" /><label for="combat2"> TACTICAL: on a detailed battle mat.</label><br />
+		<input type="radio" name="q7" id="combat0" value="0" /><label for="combat0"> QUALITATIVE: roles over rolls.</label><br />
+		<input type="radio" name="q7" id="combat1" value="1" /><label for="combat1"> QUANTITATIVE: rolls tell the tale.</label><br />
+		<input type="radio" name="q7" id="combat2" value="2" /><label for="combat2"> TACTICAL: on a detailed battle mat.</label><br />
 	</td>
 </tr>
-<tr>
-	<th> House Rules<br />&amp; Tips</th>
-	<td colspan="2"> <textarea name="t3" rows="3" title="synopsis, links, other guidance" oninput="textCount(this.form)">(synopsis, links, other guidance)</textarea> </td>
-</tr>
-<tr>
-	<th> When &amp; Where</th>
-	<td colspan="2"> <input type="text" name="t4" title="schedule &amp; location" oninput="textCount(this.form)" /> </td>
-</tr>
-<tr>
-	<th> What You Need</th>
-	<td colspan="2"> <input type="text" name="t5" title="equipment each player should have with them" oninput="textCount(this.form)" /> </td>
+<tr>	<th> House Rules<br />&amp; Tips</th> <td colspan="2"> <textarea oninput="textCount()" name="t3" rows="3">(synopsis, links, other guidance)</textarea> </td> </tr>
+<tr>	<th> When &amp; Where</th>	<td colspan="2"> <input type="text" oninput="textCount()" name="t4" /> </td>	</tr>
+<tr>	<th> What You Need</th>	<td colspan="2"> <input oninput="textCount()" type="text" name="t5" /> </td>	
 </tr>
 <tr class="omit">
 	<th> <input type="text" name="count" id="count"> </th>
-	<td class="noborder"> <a href="https://rpg.stackexchange.com/questions/92290/whats-the-purpose-of-the-same-page-tool/92305#92305" target="new" title="Seriously, if you're a GM but don't know the Same Page Tool, READ THIS NOW">Learn why to use this form</a>, then <input id="printbutton" type="button" value="Print (Save to PDF)" onClick="window.print()" title="email to your players or post on your page" /> </td>
-	<td class="noborder"> <input type="reset"> </td>
+	<td class="noborder" colspan="2"> <input id="printbutton" type="button" value="Print (Save to PDF)" onClick="window.print()" /> <input type="reset" style="margin-left: 20%" /> </td>
 </tr>
-<tr>
 </tbody>
 </table>
 </form>
